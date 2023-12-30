@@ -1,0 +1,20 @@
+//@version=5
+indicator(title="Combined EMAs", shorttitle="CEMAs", overlay=true, timeframe="", timeframe_gaps=true)
+
+// EMA Settings
+length5 = input.int(5, title="5 EMA Length", minval=1)
+length13 = input.int(13, title="13 EMA Length", minval=1)
+length26 = input.int(26, title="26 EMA Length", minval=1)
+length50 = input.int(50, title="50 EMA Length", minval=1)
+
+// Calculate EMAs
+ema5 = ta.ema(close, length5)
+ema13 = ta.ema(close, length13)
+ema26 = ta.ema(close, length26)
+ema50 = ta.ema(close, length50)
+
+// Plot EMAs with Different Colors
+plot(ema5, title="5 EMA", color=color.yellow)
+plot(ema13, title="13 EMA", color=color.blue)
+plot(ema26, title="26 EMA", color=color.red)
+plot(ema50, title="50 EMA", color=color.green)
